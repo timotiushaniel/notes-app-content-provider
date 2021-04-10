@@ -2,17 +2,16 @@ package com.timotiushaniel.mynotesapp
 
 import android.content.Intent
 import android.database.ContentObserver
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.timotiushaniel.mynotesapp.adapter.NoteAdapter
 import com.timotiushaniel.mynotesapp.databinding.ActivityMainBinding
 import com.timotiushaniel.mynotesapp.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
-import com.timotiushaniel.mynotesapp.db.NoteHelper
 import com.timotiushaniel.mynotesapp.entity.Note
 import com.timotiushaniel.mynotesapp.helper.MappingHelper
 import kotlinx.coroutines.Dispatchers
@@ -61,7 +60,8 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             loadNotesAsync()
         } else {
-            savedInstanceState.getParcelableArrayList<Note>(EXTRA_STATE)?.also { adapter.listNotes = it }
+            savedInstanceState.getParcelableArrayList<Note>(EXTRA_STATE)
+                ?.also { adapter.listNotes = it }
         }
     }
 

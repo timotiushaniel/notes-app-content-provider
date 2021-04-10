@@ -12,7 +12,8 @@ import com.timotiushaniel.mynotesapp.R
 import com.timotiushaniel.mynotesapp.databinding.ItemNoteBinding
 import com.timotiushaniel.mynotesapp.entity.Note
 
-class NoteAdapter(private val activity: Activity) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
+class NoteAdapter(private val activity: Activity) :
+    RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     var listNotes = ArrayList<Note>()
         set(listNotes) {
             this.listNotes.clear()
@@ -37,14 +38,18 @@ class NoteAdapter(private val activity: Activity) : RecyclerView.Adapter<NoteAda
             binding.tvItemTitle.text = note.title
             binding.tvItemDate.text = note.date
             binding.tvItemDescription.text = note.description
-            binding.cvItemNote.setOnClickListener(CustomOnItemClickListener(adapterPosition, object : CustomOnItemClickListener.OnItemClickCallback {
-                override fun onItemClicked(view: View, position: Int) {
-                    val intent = Intent(activity, NoteAddUpdateActivity::class.java)
-                    intent.putExtra(NoteAddUpdateActivity.EXTRA_POSITION, position)
-                    intent.putExtra(NoteAddUpdateActivity.EXTRA_NOTE, note)
-                    activity.startActivity(intent)
-                }
-            }))
+            binding.cvItemNote.setOnClickListener(
+                CustomOnItemClickListener(
+                    adapterPosition,
+                    object : CustomOnItemClickListener.OnItemClickCallback {
+                        override fun onItemClicked(view: View, position: Int) {
+                            val intent = Intent(activity, NoteAddUpdateActivity::class.java)
+                            intent.putExtra(NoteAddUpdateActivity.EXTRA_POSITION, position)
+                            intent.putExtra(NoteAddUpdateActivity.EXTRA_NOTE, note)
+                            activity.startActivity(intent)
+                        }
+                    })
+            )
         }
     }
 }

@@ -4,12 +4,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import com.timotiushaniel.mynotesapp.db.DatabaseContract.NoteColumns.Companion.DATE
-import com.timotiushaniel.mynotesapp.db.DatabaseContract.NoteColumns.Companion.DESCRIPTION
 import com.timotiushaniel.mynotesapp.db.DatabaseContract.NoteColumns.Companion.TABLE_NAME
-import com.timotiushaniel.mynotesapp.db.DatabaseContract.NoteColumns.Companion.TITLE
 import com.timotiushaniel.mynotesapp.db.DatabaseContract.NoteColumns.Companion._ID
-import com.timotiushaniel.mynotesapp.entity.Note
 import java.sql.SQLException
 
 class NoteHelper(context: Context) {
@@ -64,7 +60,8 @@ class NoteHelper(context: Context) {
             null,
             null,
             null,
-            null)
+            null
+        )
     }
 
     /**

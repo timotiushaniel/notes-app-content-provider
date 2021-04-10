@@ -18,6 +18,7 @@ class NoteProvider : ContentProvider() {
         private const val NOTE_ID = 2
         private val sUriMatcher = UriMatcher(UriMatcher.NO_MATCH)
         private lateinit var noteHelper: NoteHelper
+
         init {
             // content://com.timotiushaniel.mynotesapp/note
             sUriMatcher.addURI(AUTHORITY, TABLE_NAME, NOTE)
@@ -54,7 +55,13 @@ class NoteProvider : ContentProvider() {
         return true
     }
 
-    override fun query(uri: Uri, strings: Array<String>?, s: String?, strings1: Array<String>?, s1: String?): Cursor? {
+    override fun query(
+        uri: Uri,
+        strings: Array<String>?,
+        s: String?,
+        strings1: Array<String>?,
+        s1: String?
+    ): Cursor? {
         return when (sUriMatcher.match(uri)) {
             NOTE -> noteHelper.queryAll()
             NOTE_ID -> noteHelper.queryById(uri.lastPathSegment.toString())
@@ -62,9 +69,17 @@ class NoteProvider : ContentProvider() {
         }
     }
 
-    override fun update(uri: Uri, contentValues: ContentValues?, s: String?, strings: Array<String>?): Int {
+    override fun update(
+        uri: Uri,
+        contentValues: ContentValues?,
+        s: String?,
+        strings: Array<String>?
+    ): Int {
         val updated: Int = when (NOTE_ID) {
-            sUriMatcher.match(uri) -> noteHelper.update(uri.lastPathSegment.toString(),contentValues)
+            sUriMatcher.match(uri) -> noteHelper.update(
+                uri.lastPathSegment.toString(),
+                contentValues
+            )
             else -> 0
         }
         context?.contentResolver?.notifyChange(CONTENT_URI, null)

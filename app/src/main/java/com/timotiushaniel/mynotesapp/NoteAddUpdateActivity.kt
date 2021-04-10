@@ -1,17 +1,15 @@
 package com.timotiushaniel.mynotesapp
 
 import android.content.ContentValues
-import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.timotiushaniel.mynotesapp.databinding.ActivityNoteAddUpdateBinding
-import com.timotiushaniel.mynotesapp.db.DatabaseContract
 import com.timotiushaniel.mynotesapp.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
 import com.timotiushaniel.mynotesapp.db.DatabaseContract.NoteColumns.Companion.DATE
 import com.timotiushaniel.mynotesapp.db.DatabaseContract.NoteColumns.Companion.DESCRIPTION
