@@ -1,15 +1,14 @@
 package com.timotiushaniel.consumerapp
 
 import android.content.ContentValues
-import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.timotiushaniel.consumerapp.databinding.ActivityNoteAddUpdateBinding
 import com.timotiushaniel.consumerapp.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
 import com.timotiushaniel.consumerapp.db.DatabaseContract.NoteColumns.Companion.DATE
